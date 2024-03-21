@@ -15,7 +15,7 @@ export default function Home() {
 	};
 	return (
 		<main className="bg-[#d2f75a] bg-screen">
-			<div className="max-w-[1500px] min-h-[100vh] mx-auto border relative">
+			<div className="max-w-[1500px] min-h-[100vh] mx-auto relative">
 				<div className="text-start absolute top-10 left-10 items-center gap-5">
 					<div className="">
 						<Svg></Svg>
