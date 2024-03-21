@@ -52,7 +52,11 @@ export default function Home() {
 									clickedIndex === idx && isClicked ? 0 : -35,
 								transition: {
 									duration: 1,
-									delay: idx * -0.05,
+                                    delay: idx * -0.05,
+                                    rotateY: {
+                                        delay: 0.3,
+                                        duration: 1
+                                    }
 								},
 							}}
 							whileHover={{
