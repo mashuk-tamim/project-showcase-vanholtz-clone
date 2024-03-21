@@ -1,113 +1,115 @@
+"use client";
 import Image from "next/image";
-
+import { inter, russo, changa, ultra } from "@/app/font/font";
+import { motion } from "framer-motion";
+import horse from "@/public/img/horse.avif";
+import { useReducer, useState } from "react";
+import Svg from "./component/Svg";
+import Link from "next/link";
 export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+	const [isClicked, setIsClicked] = useState(false);
+	const [clickedIndex, setClickedIndex] = useState(-1);
+	const handleClick = (idx: number) => {
+		setClickedIndex(idx);
+		setIsClicked(true);
+	};
+	return (
+		<main className="bg-[#d2f75a] relative">
+			<div className="text-start absolute top-10 left-10">
+				<Svg></Svg>
+			</div>
+			<motion.div
+				className={`${ultra.className} text-8xl font-black text-black text-end tracking-wider space-y-5 py-12 px-24`}
+				style={{
+					transform: "perspective(3000px) translateZ(0px)",
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+					transformOrigin: "right",
+					transformStyle: "preserve-3d",
+				}}
+			>
+				{textArray.map((text, idx) => (
+					<motion.div
+						key={idx}
+						initial={{
+							y: -2000,
+							rotateY: -90,
+							transformOrigin: "right",
+							transformStyle: "preserve-3d",
+						}}
+						animate={{
+							y: 0,
+							rotateY:
+								clickedIndex === idx && isClicked ? 0 : -45,
+							transition: {
+								duration: 1,
+								delay: idx * -0.05,
+							},
+						}}
+						whileHover={{
+							rotateY: -35,
+							transition: {
+								duration: 0.3,
+							},
+						}}
+					>
+						<Link href={text.link}>
+							<motion.button
+								className="hover:text-stroke hover:text-[#d2f75a] transition-all duration-500 ease-in-out uppercase  text-end"
+								onClick={() => handleClick(idx)}
+							>
+								{text.p1} {text.p2}
+							</motion.button>
+						</Link>
+					</motion.div>
+				))}
+			</motion.div>
+			<div
+				className={`${ultra.className} text-6xl font-black text-black text-start space-y-0 fixed bottom-0 px-10 mb-10`}
+			>
+				<p>Mas</p>
+				<p>huk</p>
+				<div
+					className={`${inter.className} font-medium text-base flex gap-3`}
+				>
+					<p className="">
+						Associate Software Engineer,{" "}
+						<span className="uppercase"> Uqidev</span>
+					</p>
+				</div>
+			</div>
+		</main>
+	);
 }
+
+const textArray = [
+	{
+		p1: "Content",
+		p2: "Flow",
+		link: "https://content-floww-mirror.vercel.app/",
+	},
+	{
+		p1: "FeyApp",
+		p2: "",
+		link: "https://feyapp-clone.vercel.app/",
+	},
+	{
+		p1: "Card",
+		p2: "Parallax",
+		link: "https://card-parallax-scroll.vercel.app/",
+	},
+	{
+		p1: "Gallery",
+		p2: "Parallax",
+		link: "https://gallery-scroll-parallax.vercel.app/",
+	},
+	{
+		p1: "mouse",
+		p2: "hover mask",
+		link: "https://mouse-hover-mask.vercel.app/",
+	},
+	{
+		p1: "Text",
+		p2: "Reveal",
+		link: "https://word-reveal-on-scroll-zs64.vercel.app/",
+	},
+];
