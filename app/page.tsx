@@ -93,7 +93,7 @@ export default function Home() {
 				>
 					<p className="">
 						Associate Software Engineer,{" "}
-						<span className="uppercase"> Uqidev</span>
+						<span className="uppercase"> UqiDev</span>
 					</p>
 				</div>
 			</div>
@@ -111,6 +111,11 @@ const textArray = [
 		p1: "FeyApp",
 		p2: "",
 		link: "https://feyapp-clone.vercel.app/",
+	},
+	{
+		p1: "Page",
+		p2: "Transitions",
+		link: "https://github.com/mashuk-tamim/nextjs-page-transitions",
 	},
 	{
 		p1: "Card",
