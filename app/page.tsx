@@ -115,7 +115,7 @@ const textArray = [
 	{
 		p1: "Page",
 		p2: "Transitions",
-		link: "https://github.com/mashuk-tamim/nextjs-page-transitions",
+		link: "https://nextjs-page-transitions-livid.vercel.app/",
 	},
 	{
 		p1: "Card",
